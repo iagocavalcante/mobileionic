@@ -1,0 +1,43 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Cadastrar-se</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<!-- implementar validation de email-->
+  <form #c="ngForm" (ngSubmit)="signUp()">
+    <ion-list>
+
+      <ion-item>
+        <ion-label stacked>E-mail</ion-label>
+        <ion-input required [(ngModel)]="user.email" name="email" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" placeholder="user.mail@mail.com"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Primeiro Nome</ion-label>
+        <ion-input required [(ngModel)]="user.firstName" name="first" type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Último Nome</ion-label>
+        <ion-input required [(ngModel)]="user.lastName" name="last" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Senha</ion-label>
+        <ion-input required [(ngModel)]="user.signUpPassword" name="sign" type="password"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Confirmar Senha</ion-label>
+        <ion-input required [(ngModel)]="user.confirmPassword" name="confirm" type="password"></ion-input>
+      </ion-item>
+
+    </ion-list>
+    <button ion-button type="submit" block [disabled]="!c.valid">
+      Cadastrar
+      </button>
+  </form>
+
+</ion-content>

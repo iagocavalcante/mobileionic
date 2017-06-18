@@ -1,0 +1,43 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Login</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+ <form #c="ngForm">
+  <ion-list>
+
+    <ion-item>
+      <ion-label stacked>Username</ion-label>
+      <ion-input required [(ngModel)]="username" name="email" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" placeholder="user.mail@mail.com"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Password</ion-label>
+      <ion-input required [(ngModel)]="password" name="sign" type="password"></ion-input>
+    </ion-item>
+
+  </ion-list>
+
+  <ion-row>
+    <ion-col style="text-align:right">
+      <button ion-button [disabled]="!c.valid" (click)="getAuthTokenSimple()">Entrar</button>
+    </ion-col>
+
+    <ion-col style="text-align:left">
+      <button ion-button outline [navPush]="signupPage">Sign Up</button>
+    </ion-col>
+  </ion-row>
+   </form>
+
+  <ion-row>
+    <ion-col style="text-align:center">
+      <a href="#" [navPush]="esqPage">Esqueceu a senha?</a>
+    </ion-col>
+  </ion-row>
+
+
+</ion-content>

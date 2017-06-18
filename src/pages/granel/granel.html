@@ -1,0 +1,48 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Lista</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form #f="ngForm" (ngSubmit)="addGranel()">
+    <ion-list>
+      <ion-item>
+        <ion-label fixed>Nome:</ion-label>
+        <ion-input required [(ngModel)]="granel.nome" type="text" name="nome" placeholder="Picanha">
+        </ion-input>
+      </ion-item>
+
+		<ion-list>
+      		<ion-item>
+    			<ion-label>Unidade:</ion-label>
+    			<ion-select required [(ngModel)]="granel.option" name="selection">
+      				<ion-option selected value="kg">Kg</ion-option>
+      				<ion-option value="lt">Litro</ion-option>
+    			</ion-select>
+  			</ion-item>
+		</ion-list>
+
+		<ion-item>
+        <ion-label fixed>Preço (R$):</ion-label>
+        <ion-input required [(ngModel)]="granel.preco" type="number" name="itemPrice" placeholder="37.70">
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label fixed>Peso:</ion-label>
+        <ion-input required [(ngModel)]="granel.peso" type="number" name="itemQtd" placeholder="1.75">
+        </ion-input>
+      </ion-item>
+
+      
+    </ion-list>
+    <button ion-button type="submit" block [disabled]="!f.valid">
+      Adicionar
+      </button>
+  </form>
+
+</ion-content>

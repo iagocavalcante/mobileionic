@@ -1,0 +1,82 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Lista</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-fab top right edge>
+    <button ion-fab><ion-icon name="add"></ion-icon></button>
+    <ion-fab-list>
+      <button ion-fab [navPush]="unidPage">Unid.</button>
+      <button ion-fab [navPush]="grlPage">Granel</button>
+    </ion-fab-list>
+  </ion-fab>
+
+  <br>
+  <ion-list>
+    <ion-item-group>
+      <ion-item-divider color="light">Produtos por unidade</ion-item-divider>
+      <ion-item-sliding *ngFor="let u of unidade; let i=index">
+        <ion-item>
+          <h2>{{u.nome}} ({{u.quantidade}})</h2>
+          <h3>R$: {{u.preco * u.quantidade}}</h3>
+        </ion-item>
+        <ion-item-options side="right">
+          <button ion-button outline color="primary" icon-left>
+          <ion-icon name="create"></ion-icon>
+          Editar
+        </button>
+          <button ion-button outline color="danger" icon-left>
+          <ion-icon name="trash"></ion-icon>
+          Remover
+        </button>
+        </ion-item-options>
+        <ion-item-options side="left">
+          <button ion-button outline color="secondary" icon-left>
+          <ion-icon name="star"></ion-icon>
+          Favoritar
+        </button>
+        </ion-item-options>
+
+      </ion-item-sliding>
+    </ion-item-group>
+
+  </ion-list>
+  <ion-list>
+    <ion-item-group>
+      <ion-item-divider color="light">Produtos à granel</ion-item-divider>
+      <ion-item-sliding *ngFor="let g of granel; let i=index">
+        <ion-item>
+          <h2>{{g.nome}} ({{g.peso}} {{g.option}})</h2>
+          <h3>R$: {{g.preco * g.peso}}</h3>
+        </ion-item>
+        <ion-item-options side="right">
+          <button ion-button outline color="primary" icon-left>
+          <ion-icon name="create"></ion-icon>
+          Editar
+        </button>
+          <button ion-button outline color="danger" icon-left>
+          <ion-icon name="trash"></ion-icon>
+          Remover
+        </button>
+        </ion-item-options>
+        <ion-item-options side="left">
+          <button ion-button outline color="secondary" icon-left>
+          <ion-icon name="star"></ion-icon>
+          Favoritar
+        </button>
+        </ion-item-options>
+
+      </ion-item-sliding>
+    </ion-item-group>
+
+  </ion-list>
+
+
+
+</ion-content>

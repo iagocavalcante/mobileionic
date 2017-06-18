@@ -1,0 +1,36 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Adicionar Produto</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form #f="ngForm" (ngSubmit)="addUnid()">
+    <ion-list>
+      <ion-item>
+        <ion-label fixed>Nome:</ion-label>
+        <ion-input required [(ngModel)]="unidade.nome" type="text" name="itemName" placeholder="Arroz">
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label fixed>Preço (R$):</ion-label>
+        <ion-input required [(ngModel)]="unidade.preco" type="number" name="itemPrice" placeholder="2.53">
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label fixed>Quantidade:</ion-label>
+        <ion-input required [(ngModel)]="unidade.quantidade" type="number" name="itemQtd" placeholder="2">
+        </ion-input>
+      </ion-item>
+    </ion-list>
+    <button ion-button type="submit" block [disabled]="!f.valid" >
+      Adicionar
+      </button>
+  </form>
+
+</ion-content>
