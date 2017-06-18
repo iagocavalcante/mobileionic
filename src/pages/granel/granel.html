@@ -8,7 +8,7 @@
 
 
 <ion-content padding>
-  <form #f="ngForm" (ngSubmit)="addGranel()">
+  <form #f="ngForm">
     <ion-list>
       <ion-item>
         <ion-label fixed>Nome:</ion-label>
@@ -40,7 +40,7 @@
 
       
     </ion-list>
-    <button ion-button type="submit" block [disabled]="!f.valid">
+    <button ion-button type="submit" block [disabled]="!f.valid" (click)="cadastrar()" navPop>
       Adicionar
       </button>
   </form>

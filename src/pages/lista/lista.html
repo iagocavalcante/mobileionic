@@ -27,11 +27,11 @@
           <h3>R$: {{u.preco * u.quantidade}}</h3>
         </ion-item>
         <ion-item-options side="right">
-          <button ion-button outline color="primary" icon-left>
+          <button ion-button outline color="primary" icon-left (click)="editarunidade(u)">
           <ion-icon name="create"></ion-icon>
           Editar
         </button>
-          <button ion-button outline color="danger" icon-left>
+          <button ion-button outline color="danger" icon-left (click)="excluirunidade(u)">
           <ion-icon name="trash"></ion-icon>
           Remover
         </button>
@@ -56,11 +56,11 @@
           <h3>R$: {{g.preco * g.peso}}</h3>
         </ion-item>
         <ion-item-options side="right">
-          <button ion-button outline color="primary" icon-left>
+          <button ion-button outline color="primary" icon-left (click)="editargranel(g)">
           <ion-icon name="create"></ion-icon>
           Editar
         </button>
-          <button ion-button outline color="danger" icon-left>
+          <button ion-button outline color="danger" icon-left (click)="excluirgranel(g)">
           <ion-icon name="trash"></ion-icon>
           Remover
         </button>

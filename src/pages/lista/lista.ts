@@ -11,6 +11,7 @@ import { BackandService } from '@backand/angular2-sdk';
   templateUrl: 'lista.html',
 })
 export class ListaPage {
+
   unidade: any;
   granel: any;
   unidPage = UnidadePage;
@@ -27,18 +28,26 @@ export class ListaPage {
     this.backand.object.getList("unidade")
       .then((resp) => {
         this.unidade = resp.data;
+        console.log("Lista de Unidade Carregada");
       }).catch((err) => {
       });
     this.backand.object.getList("granel")
       .then((resp) => {
         this.granel = resp.data;
+        console.log("Lista de Granel Carregada");
         loader.dismiss();
       }).catch((err) => {
       });
 
   }
+  editarunidade(u) {
+    this.navCtrl.push(UnidadePage, { id: u.id });
+  }
+  editargranel(g) {
+    this.navCtrl.push(GranelPage, { id: g.id });
+  }
 
-  excluir(p) {
+  excluirunidade(u) {
     let confirm = this.alertCtrl.create({
       title: 'Excluir produto',
       message: 'Deseja realmente excluir este registro?',
@@ -55,7 +64,7 @@ export class ListaPage {
               content: 'Excluindo...'
             });
             loading.present();
-            this.backand.object.remove("unidade", p.id).then((resp) => {
+            this.backand.object.remove("unidade", u.id).then((resp) => {
               let toast = this.toast.create({
                 message: 'Produto excuído com sucesso!',
                 duration: 2000
@@ -73,10 +82,46 @@ export class ListaPage {
     confirm.present();
   }
 
+   excluirgranel(g) {
+    let confirm = this.alertCtrl.create({
+      title: 'Excluir produto',
+      message: 'Deseja realmente excluir este registro?',
+      buttons: [
+        {
+          text: 'Não',
+          handler: () => {
+          }
+        },
+        {
+          text: 'Sim',
+          handler: () => {
+            let loading = this.loadingCtrl.create({
+              content: 'Excluindo...'
+            });
+            loading.present();
+            this.backand.object.remove("granel", g.id).then((resp) => {
+              let toast = this.toast.create({
+                message: 'Produto excuído com sucesso!',
+                duration: 2000
+              });
+              toast.present();
+              loading.dismiss();
+              this.listar();
+            }).catch((err) => {
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ListaPage');
+            });
+          }
+        }
+      ]
+    });
+    confirm.present();
+  }
+
+  ionViewDidEnter() {
+    console.log("IonViewDidEnter");
     this.listar();
   }
+
+
 
 }
