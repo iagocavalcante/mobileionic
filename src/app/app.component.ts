@@ -4,7 +4,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
-import { BackandService, Response } from '@backand/angular2-sdk'
+import { BackandService } from '@backand/angular2-sdk'
 
 
 @Component({

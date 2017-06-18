@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LoadingController, IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
-import { NgForm } from '@angular/forms';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { BackandService } from '@backand/angular2-sdk'
 import { HomePage } from "../home/home";
 //implementar alert de confirmação de cadastro.
