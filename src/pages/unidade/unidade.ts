@@ -24,6 +24,17 @@ export class UnidadePage {
     this.user = {};
     this.unidade = {};
 
+    this.backand.user.getUserDetails().then(
+			(data: any) => {
+				this.user = data.data;
+				console.log("USUARIO", data.data);
+			},
+			(err: any) => {
+				console.log(err);
+
+			}
+		);
+
     let id = this.navParams.get("id");
     // if nao for edicao este parametro sera undefined mas se for ele contera o ID do produto
     if (id != undefined) {
@@ -46,6 +57,7 @@ export class UnidadePage {
   }
 
   criar(loading) {
+    this.unidade.user = this.user.userId
     // apenas cria um produto
     this.backand.object.create("unidade", this.unidade).then((resp) => {
       loading.dismiss();
